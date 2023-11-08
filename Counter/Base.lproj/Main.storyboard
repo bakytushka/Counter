@@ -1,24 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vi1-6q-1Cg">
+                                <rect key="frame" x="202.5" y="108" width="9.5" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="PQa-TV-lqM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-vt-z03">
+                                <rect key="frame" x="327" y="431" width="47" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
+                                    <backgroundConfiguration key="background" cornerRadius="16">
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="countPlus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M3v-At-056"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJ0-Nq-Tig">
+                                <rect key="frame" x="40" y="431" width="47" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="minus" catalog="system">
+                                    <backgroundConfiguration key="background" cornerRadius="16">
+                                        <color key="backgroundColor" systemColor="tintColor"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="countMinus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EZc-v3-2Hc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPw-7w-rhM">
+                                <rect key="frame" x="183.5" y="431" width="47" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system">
+                                    <backgroundConfiguration key="background" cornerRadius="16">
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Yz-49-3tc"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" editable="NO" text="История изменений:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JAp-jp-Nki">
+                                <rect key="frame" x="40" y="495" width="334" height="267"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JAp-jp-Nki" secondAttribute="bottom" constant="100" id="85a-ex-3U1"/>
+                            <constraint firstItem="JJ0-Nq-Tig" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Bah-rl-xnu"/>
+                            <constraint firstItem="HIB-vt-z03" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PPw-7w-rhM" secondAttribute="trailing" constant="8" symbolic="YES" id="Cxw-pX-zwb"/>
+                            <constraint firstItem="vi1-6q-1Cg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="GRA-BR-x85"/>
+                            <constraint firstItem="JAp-jp-Nki" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K6A-rl-PJe"/>
+                            <constraint firstItem="PPw-7w-rhM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JJ0-Nq-Tig" secondAttribute="trailing" constant="8" symbolic="YES" id="Ld0-cm-sbJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HIB-vt-z03" secondAttribute="trailing" constant="40" id="Ln9-9j-CjF"/>
+                            <constraint firstItem="JAp-jp-Nki" firstAttribute="top" secondItem="HIB-vt-z03" secondAttribute="bottom" constant="30" id="LoD-Tg-usA"/>
+                            <constraint firstItem="JAp-jp-Nki" firstAttribute="top" secondItem="PPw-7w-rhM" secondAttribute="bottom" constant="30" id="Q2e-ox-kC0"/>
+                            <constraint firstItem="PPw-7w-rhM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VnC-kC-hmu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JAp-jp-Nki" secondAttribute="trailing" constant="40" id="WLy-SB-CPt"/>
+                            <constraint firstItem="JAp-jp-Nki" firstAttribute="top" secondItem="JJ0-Nq-Tig" secondAttribute="bottom" constant="30" id="YiF-z2-vuN"/>
+                            <constraint firstItem="HIB-vt-z03" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="a7N-6Z-t7r"/>
+                            <constraint firstItem="vi1-6q-1Cg" firstAttribute="centerX" secondItem="PPw-7w-rhM" secondAttribute="centerX" id="ajf-Uq-dwO"/>
+                            <constraint firstItem="JAp-jp-Nki" firstAttribute="top" secondItem="HIB-vt-z03" secondAttribute="bottom" constant="30" id="jL4-M1-xnH"/>
+                            <constraint firstItem="JJ0-Nq-Tig" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="o4Y-Vi-cMF"/>
+                            <constraint firstItem="JAp-jp-Nki" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="ogW-BS-xhx"/>
+                            <constraint firstItem="PPw-7w-rhM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qeK-RT-S0f"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="counterHistory" destination="JAp-jp-Nki" id="8SJ-74-uDa"/>
+                        <outlet property="counterLabel" destination="vi1-6q-1Cg" id="h2w-nT-TwZ"/>
+                        <outlet property="minusButton" destination="JJ0-Nq-Tig" id="1Tj-zy-C9F"/>
+                        <outlet property="plusButton" destination="HIB-vt-z03" id="9BL-7w-4h3"/>
+                        <outlet property="resetButton" destination="PPw-7w-rhM" id="TB4-d1-zDt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="121.73913043478262" y="-141.29464285714286"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+        <image name="minus" catalog="system" width="128" height="26"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
